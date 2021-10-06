@@ -1,7 +1,31 @@
 body{
-    color: blueviolet;
+    color: white;
+    background: url("media/background.jpg");
 }
 
 h1{
-    color: brown;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 2% 0;
 }
+
+.btn{
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+
+}
+
+.card{
+    background: transparent;
+    border: 2px solid white;
+    width: 80%;
+    margin:2% auto;
+    padding: 2%;
+    text-align: center;
+    /* box-shadow: 2px 2px 5px 5px white; */
+}
+.card h3{
+    padding-bottom: 3%;
+}
+
