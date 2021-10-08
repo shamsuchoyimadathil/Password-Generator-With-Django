@@ -1,5 +1,5 @@
 import random
-from django.shortcuts import render
+from django.shortcuts import render , HttpResponseRedirect
 
 # Create your views here.
 
@@ -19,29 +19,26 @@ def password_generator(request):
         symbol = request.POST.get("pass_symbol")
 
         password = ""
-        for a in range(1, int(letter)+1):
+        for a in range(int(letter)):
             password = password+random.choice(letters)
             print(password)
 
-        for b in range(1, int(number)+1):
+        for b in range(int(number)):
             password = password+random.choice(numbers)
             print(password)
 
 
-        for c in range(1,int(symbol)+1):
+        for c in range(int(symbol)):
             password = password+random.choice(symbols)
             print(password)
-
-
+        
         random_password = ""
+        l = list(password)
+        random.shuffle(l)
+        random_password = ''.join(l)
 
-        for d in range(1, len(password)):
-            random_password_generator = random.choice(password)
-            random_password += random_password_generator 
-        message = f" your password is: {random_password}" 
-        context ["password"] = random_password
-        print(message)
-
+        context ["password"] = random_password  
+        
 
         return render(request,"password_generator.html",context)
 
